@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="aurora">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Parth Ghuge - Computer Science Engineer & Full-Stack Developer Portfolio">
+    <title id="pageTitle">Parth Ghuge | Full-Stack Developer & CS Engineer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome & Devicon Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Dynamic Canvas Background -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Main Container -->
+    <div class="site-wrapper">
+
+        <!-- Navigation Header -->
+        <header class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="#hero" class="nav-logo">
+                    <span class="logo-icon"><i class="fa-solid fa-terminal"></i></span>
+                    <span class="logo-text" id="navLogoName">Parth Ghuge</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="#hero" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About Me</a>
+                    <a href="#skills" class="nav-link">Tech Stack</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#experience" class="nav-link">Education & Training</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+
+                <!-- Actions Header -->
+                <div class="nav-actions">
+                    <!-- Download Resume PDF Button -->
+                    <a href="Parth_Ghuge_CV.pdf" download="Parth_Ghuge_CV.pdf" class="btn btn-primary btn-sm">
+                        <i class="fa-solid fa-download"></i> Resume
+                    </a>
+
+                    <!-- Theme Selector -->
+                    <div class="theme-picker">
+                        <i class="fa-solid fa-palette"></i>
+                        <select id="themeSelect" aria-label="Select Theme">
+                            <option value="aurora">🌌 Aurora</option>
+                            <option value="cyberpunk">⚡ Cyberpunk</option>
+                            <option value="midnight">🖤 Midnight</option>
+                            <option value="emerald">🌿 Emerald</option>
+                        </select>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="badge-pill">
+                        <span class="pulse-dot"></span>
+                        <span id="heroAvailability">Open to Software Engineering Internships & Roles</span>
+                        <span id="langBadge" style="margin-left: 0.5rem; font-weight: 700; color: #fff; background: var(--accent-primary); padding: 0.1rem 0.6rem; border-radius: 20px; font-size: 0.75rem;">English 🇬🇧</span>
+                    </div>
+
+                    <!-- MULTILINGUAL CLICKABLE GREETING -->
+                    <h1 class="hero-title" style="cursor: pointer;" title="Click to switch language! 🔄">
+                        <span class="highlight-text" id="heroName">Hi, I'm Parth Ghuge</span>
+                        <span style="font-size: 0.8rem; color: var(--accent-secondary); font-weight: 600; display: inline-block; vertical-align: middle; margin-left: 0.4rem;"><i class="fa-solid fa-rotate"></i> Click</span>
+                    </h1>
+
+                    <h2 class="hero-subtitle">
+                        Building <span class="typewriter-text" id="typewriter"></span><span class="cursor">|</span>
+                    </h2>
+
+                    <p class="hero-bio" id="heroBio">
+                        Computer Science Engineer specializing in Next.js, React, TypeScript, C++, and Data Structures & Algorithms. Passionate about building clean, high-performance web applications.
+                    </p>
+
+                    <div class="hero-actions">
+                        <!-- RESUME PDF BUTTON -->
+                        <a href="Parth_Ghuge_CV.pdf" download="Parth_Ghuge_CV.pdf" class="btn btn-primary">
+                            <i class="fa-solid fa-file-arrow-down"></i> Resume
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <i class="fa-solid fa-rocket"></i> View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fa-solid fa-paper-plane"></i> Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Key Stats Counter -->
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <h3 class="stat-number">B.Tech CSE</h3>
+                            <p class="stat-label">Lovely Professional Univ.</p>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-card">
+                            <h3 class="stat-number">96.6%</h3>
+                            <p class="stat-label">Matriculation Score</p>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-card">
+                            <h3 class="stat-number">Full-Stack</h3>
+                            <p class="stat-label">Next.js & C++ DSA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HERO PICTURE & VISUAL PROFILE CARD -->
+                <div class="hero-visual">
+                    <div class="avatar-glass-card">
+                        <div class="avatar-glow"></div>
+                        <div class="avatar-inner">
+                            <img src="WhatsApp Image 2026-08-26 at 9.58.43 AM.jpeg" alt="Parth Ghuge" class="profile-img" style="width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--accent-primary); object-fit: cover; margin-bottom: 1rem;" onerror="this.src='profile.jpg';">
+                            <h3 style="font-family: var(--font-heading); font-size: 1.2rem;">Parth Ghuge</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">CS Engineer @ LPU</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dedicated About Me Section -->
+        <section class="section about-section" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Who I Am</span>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="glass-card about-card" style="max-width: 900px; margin: 0 auto;">
+                    <h3 class="card-title"><i class="fa-solid fa-user-gear"></i> Background & Goals</h3>
+                    <p class="about-description" id="aboutFullText">
+                        I am a Computer Science undergraduate at Lovely Professional University with a strong foundation in Data Structures & Algorithms in C++, modern full-stack web development using Next.js, React, Tailwind CSS, and MongoDB. I thrive on solving complex algorithmic problems and engineering responsive, user-friendly digital experiences.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>B.Tech CSE @ Lovely Professional University</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>C++ Data Structures & Algorithm Design</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Next.js App Router & Responsive UI</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>MongoDB, Clerk & REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK ICONS SECTION -->
+        <section class="section skills-section" id="skills">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Technical Proficiency</span>
+                    <h2 class="section-title">Tech Stack & Languages</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="skills-icon-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto;">
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-cplusplus-plain colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">C++</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-python-plain colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">Python</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-javascript-plain colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">JavaScript</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-typescript-plain colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">TypeScript</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-nextjs-original-wordmark colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">Next.js</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-react-original colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">React</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-tailwindcss-plain colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">Tailwind</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-mongodb-plain colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">MongoDB</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-sqldeveloper-plain colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">SQL</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-git-plain colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">Git</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-github-original colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">GitHub</p></div>
+                    <div class="glass-card tech-icon-card" style="text-align: center; padding: 1.5rem 1rem;"><i class="devicon-vscode-plain colored" style="font-size: 3rem;"></i><p style="font-size: 0.85rem; font-weight: 600; margin-top: 0.5rem; color: var(--text-secondary);">VS Code</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase Section -->
+        <section class="section projects-section" id="projects">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Featured Work</span>
+                    <h2 class="section-title">Projects Showcase</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projectsContainer">
+                    <!-- Injected dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education Section -->
+        <section class="section experience-section" id="experience">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">My Credentials</span>
+                    <h2 class="section-title">Training, Education & Certs</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="timeline-container active" id="workTimeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-card">
+                            <span class="timeline-date">Jul 2026 - Aug 2026</span>
+                            <h3 class="timeline-title">Summer Training – Basics of DSA using C++</h3>
+                            <h4 class="timeline-company">Lovely Professional University (LPU)</h4>
+                            <p class="timeline-desc">
+                                Completed an intensive Data Structures and Algorithms training program focused on core data structures, complexity analysis, and algorithmic problem-solving in C++. Solved dynamic programming, tree, graph, stack, queue, and recursion problems. Designed and built a modular Tic-Tac-Toe game in C++.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-card">
+                            <span class="timeline-date">Aug 2024 - Present</span>
+                            <h3 class="timeline-title">B.Tech in Computer Science & Engineering</h3>
+                            <h4 class="timeline-company">Lovely Professional University (Phagwara, Punjab)</h4>
+                            <p class="timeline-desc">
+                                Current CGPA: 7.00. Specializing in Software Engineering, Data Structures & Algorithms, Object-Oriented Programming, and Full-Stack Web Development.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-card">
+                            <span class="timeline-date">Jun 2022 - Feb 2024</span>
+                            <h3 class="timeline-title">Intermediate (12th Grade)</h3>
+                            <h4 class="timeline-company">M Mamta English School (Tornala, Maharashtra)</h4>
+                            <p class="timeline-desc">
+                                Achieved 84.67% aggregate percentage with focus on Physics, Chemistry, and Mathematics.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card timeline-card">
+                            <span class="timeline-date">Jun 2021 - Mar 2022</span>
+                            <h3 class="timeline-title">Matriculation (10th Grade)</h3>
+                            <h4 class="timeline-company">Jawahar Vidyalaya Jintur (Jintur, Maharashtra)</h4>
+                            <p class="timeline-desc">
+                                Achieved 96.6% score in State Board examinations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section" id="contact">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Let's Connect</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Info Cards -->
+                    <div class="contact-info">
+                        <div class="glass-card info-card">
+                            <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="info-content">
+                                <h3>Email Me</h3>
+                                <p id="contactEmailDisplay">parthghuge81@gmail.com</p>
+                                <button class="btn-text copy-btn" data-copy="parthghuge81@gmail.com">
+                                    <i class="fa-solid fa-copy"></i> Copy Email
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="glass-card info-card">
+                            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="info-content">
+                                <h3>Phone / WhatsApp</h3>
+                                <p id="contactPhoneDisplay">+91-9860062267</p>
+                                <button class="btn-text copy-btn" data-copy="+91-9860062267">
+                                    <i class="fa-solid fa-copy"></i> Copy Phone
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="glass-card info-card">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="info-content">
+                                <h3>Location</h3>
+                                <p id="contactLocationDisplay">Phagwara, Punjab / Maharashtra, India</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card info-card">
+                            <div class="info-icon"><i class="fa-solid fa-share-nodes"></i></div>
+                            <div class="info-content">
+                                <h3>Social & Code Profiles</h3>
+                                <div class="social-links" id="socialLinksContainer">
+                                    <a href="https://github.com/Hannibal-Lectar" target="_blank" rel="noopener" class="social-icon" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/parth-ghuge" target="_blank" rel="noopener" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                                    <a href="mailto:parthghuge81@gmail.com" class="social-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="glass-card contact-form-card">
+                        <h3 class="card-title"><i class="fa-solid fa-paper-plane"></i> Send a Message</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="senderName">Your Name</label>
+                                <input type="text" id="senderName" class="form-input" placeholder="e.g. Hiring Manager" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="senderEmail">Your Email</label>
+                                <input type="email" id="senderEmail" class="form-input" placeholder="e.g. manager@company.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="senderSubject">Subject</label>
+                                <input type="text" id="senderSubject" class="form-input" placeholder="Internship / Role Inquiry" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="senderMessage">Message</label>
+                                <textarea id="senderMessage" class="form-input form-textarea" rows="4" placeholder="Hi Parth, we reviewed your portfolio..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fa-solid fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <p>&copy; <span id="footerYear">2026</span> <span id="footerName">Parth Ghuge</span>. All rights reserved.</p>
+                <a href="#hero" class="back-to-top" title="Back to Top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Main JavaScript File -->
+    <script src="app.js"></script>
+</body>
+</html>

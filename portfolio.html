@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth Ghuge | Full-Stack Developer & CS Engineer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome & Devicon Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0d18;
+            --bg-card: rgba(16, 22, 42, 0.75);
+            --bg-card-hover: rgba(25, 34, 64, 0.95);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-glow: rgba(99, 102, 241, 0.25);
+            --accent-primary: #6366f1;
+            --accent-secondary: #a855f7;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(10, 13, 24, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #fff;
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent-primary); }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent-primary); }
+
+        /* Container & Sections */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 5rem 0; }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding-top: 7rem;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            width: 100%;
+        }
+        .hero-content { max-width: 650px; }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid var(--accent-primary);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Multilingual Greeting Click Box */
+        .greeting-container {
+            cursor: pointer;
+            user-select: none;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+        .greeting-container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 0.8rem;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .highlight {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .click-hint {
+            font-size: 0.75rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+            margin-left: 0.5rem;
+            display: inline-block;
+            vertical-align: middle;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        h2 { font-size: 1.4rem; color: var(--text-secondary); margin-bottom: 1.2rem; }
+        .hero-bio { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 2rem; }
+
+        /* Profile Picture Styling */
+        .profile-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .profile-card {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            padding: 6px;
+            background: var(--accent-gradient);
+            box-shadow: 0 15px 35px var(--glass-glow);
+            overflow: hidden;
+        }
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #1e293b;
+            border: 4px solid var(--bg-primary);
+            display: block;
+        }
+
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn {
+            padding: 0.8rem 1.6rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: 0.3s;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+        .btn-primary { background: var(--accent-gradient); color: #fff; border: none; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--glass-glow); }
+        .btn-outline { border: 1px solid var(--glass-border); color: #fff; background: rgba(255,255,255,0.05); }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        /* About Me Section */
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .about-text { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .about-highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .highlight-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--glass-border);
+            padding: 1rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .highlight-box i { color: #10b981; font-size: 1.2rem; }
+
+        /* SKILL ICONS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .icon-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+        .icon-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-primary);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px var(--glass-glow);
+        }
+        .icon-card i {
+            font-size: 3rem;
+            transition: 0.3s;
+        }
+        .icon-card:hover i { transform: scale(1.15); }
+        .icon-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* Projects Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+        .project-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .project-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.2rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
+        .tag {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid var(--glass-border);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        /* Education Timeline */
+        .timeline { border-left: 2px solid var(--glass-border); padding-left: 1.5rem; }
+        .timeline-item { margin-bottom: 2rem; position: relative; }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.95rem; top: 0.3rem;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+        }
+        .date { font-size: 0.85rem; color: var(--accent-primary); font-weight: 600; }
+        .timeline-item h3 { font-size: 1.2rem; margin: 0.2rem 0; }
+        .school { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Contact Section */
+        .contact-box {
+            text-align: center;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+        }
+        .contact-links { display: flex; justify-content: center; gap: 1.2rem; margin-top: 2rem; flex-wrap: wrap; }
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.76rem 1.4rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .social-btn:hover { background: var(--accent-primary); transform: translateY(-3px); }
+
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); border-top: 1px solid var(--glass-border); }
+
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { margin: 0 auto; }
+            .btn-group { justify-content: center; }
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Parth<span>.Ghuge</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Tech Stack</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- DOWNLOADABLE RESUME PDF BUTTON -->
+                <li>
+                    <a href="Parth_Ghuge_CV.pdf" download="Parth_Ghuge_CV.pdf" class="btn btn-primary" style="padding: 0.4rem 1.1rem; font-size: 0.85rem;">
+                        <i class="fa-solid fa-download"></i> Resume
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="badge">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Computer Science Engineer</span>
+                    <span id="langTag" style="margin-left: 0.5rem; font-weight: 700; color: #fff; background: var(--accent-primary); padding: 0.1rem 0.6rem; border-radius: 20px; font-size: 0.75rem;">English 🇬🇧</span>
+                </div>
+
+                <!-- CLICKABLE MULTILINGUAL GREETING -->
+                <div class="greeting-container" id="greetingClickArea" title="Click to switch language! 🔄">
+                    <h1 id="greetingHeading">
+                        <span class="highlight" id="greetingText">Hi, I'm Parth Ghuge</span>
+                    </h1>
+                    <span class="click-hint"><i class="fa-solid fa-rotate"></i> Click to change language</span>
+                </div>
+
+                <h2>Full-Stack Developer & C++ Programmer</h2>
+                <p class="hero-bio">
+                    B.Tech CS Student at Lovely Professional University. Specializing in Next.js, React, TypeScript, C++, and Data Structures & Algorithms.
+                </p>
+
+                <div class="btn-group">
+                    <!-- DOWNLOADABLE RESUME PDF MAIN BUTTON -->
+                    <a href="Parth_Ghuge_CV.pdf" download="Parth_Ghuge_CV.pdf" class="btn btn-primary">
+                        <i class="fa-solid fa-download"></i> Resume
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        <i class="fa-solid fa-rocket"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fa-solid fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <!-- YOUR UPLOADED PROFILE PICTURE -->
+            <div class="profile-wrapper">
+                <div class="profile-card">
+                    <img src="WhatsApp Image 2026-08-26 at 9.58.43 AM.jpeg" alt="Parth Ghuge" class="profile-img" onerror="this.src='profile.jpg';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated About Me Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-card">
+            <p class="about-text">
+                I am a dedicated Computer Science student at Lovely Professional University driven by a strong passion for software development, full-stack web architectures, and algorithmic problem solving. I enjoy taking on challenging coding problems and turning ideas into clean, functional, and responsive applications.
+            </p>
+            <div class="about-highlights">
+                <div class="highlight-box">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div>
+                        <strong>B.Tech CSE</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Lovely Professional Univ.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <i class="fa-solid fa-star"></i>
+                    <div>
+                        <strong>96.6% Score</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Matriculation Academic Excellence</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <div>
+                        <strong>Full-Stack & DSA</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Next.js, React & C++</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILL ICONS SECTION -->
+    <section id="skills" class="container">
+        <h2 class="section-title">Tech Stack & Languages</h2>
+        <div class="skills-grid">
+            <div class="icon-card" title="C++"><i class="devicon-cplusplus-plain colored"></i><span class="icon-label">C++</span></div>
+            <div class="icon-card" title="Python"><i class="devicon-python-plain colored"></i><span class="icon-label">Python</span></div>
+            <div class="icon-card" title="JavaScript"><i class="devicon-javascript-plain colored"></i><span class="icon-label">JavaScript</span></div>
+            <div class="icon-card" title="TypeScript"><i class="devicon-typescript-plain colored"></i><span class="icon-label">TypeScript</span></div>
+            <div class="icon-card" title="Next.js"><i class="devicon-nextjs-original-wordmark colored"></i><span class="icon-label">Next.js</span></div>
+            <div class="icon-card" title="React"><i class="devicon-react-original colored"></i><span class="icon-label">React</span></div>
+            <div class="icon-card" title="Tailwind CSS"><i class="devicon-tailwindcss-plain colored"></i><span class="icon-label">Tailwind</span></div>
+            <div class="icon-card" title="MongoDB"><i class="devicon-mongodb-plain colored"></i><span class="icon-label">MongoDB</span></div>
+            <div class="icon-card" title="SQL"><i class="devicon-sqldeveloper-plain colored"></i><span class="icon-label">SQL</span></div>
+            <div class="icon-card" title="Git"><i class="devicon-git-plain colored"></i><span class="icon-label">Git</span></div>
+            <div class="icon-card" title="GitHub"><i class="devicon-github-original colored"></i><span class="icon-label">GitHub</span></div>
+            <div class="icon-card" title="VS Code"><i class="devicon-vscode-plain colored"></i><span class="icon-label">VS Code</span></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="grid">
+            <div class="card project-card">
+                <h3>Threads Clone</h3>
+                <p>Full-stack social media platform featuring thread creation, comments, user profiles, communities, and user search built with Next.js App Router, React, TypeScript, Tailwind CSS, MongoDB, and Clerk Authentication.</p>
+                <div class="tags">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">React</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">MongoDB</span>
+                </div>
+                <a href="https://github.com/Hannibal-Lectar" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;">
+                    <i class="fa-brands fa-github"></i> View GitHub Repo
+                </a>
+            </div>
+
+            <div class="card project-card">
+                <h3>Tic Tac Toe (DSA Game)</h3>
+                <p>Modular C++ game developed during LPU Summer Training demonstrating Object-Oriented Programming (OOP) principles, custom game logic, turn management, winner detection, and data structures.</p>
+                <div class="tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">STL</span>
+                    <span class="tag">OOP</span>
+                    <span class="tag">Algorithms</span>
+                </div>
+                <a href="https://github.com/Hannibal-Lectar" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;">
+                    <i class="fa-brands fa-github"></i> View GitHub Repo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="container">
+        <h2 class="section-title">Education & Training</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="date">Jul 2026 – Aug 2026</span>
+                <h3>Summer Training – Basics of DSA using C++</h3>
+                <p class="school">Lovely Professional University (LPU)</p>
+                <p style="color: var(--text-secondary); margin-top: 0.4rem;">Mastered data structures and algorithmic design in C++. Solved competitive coding problems and developed a Tic-Tac-Toe game using OOP.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="date">Aug 2024 – Present</span>
+                <h3>B.Tech in Computer Science & Engineering</h3>
+                <p class="school">Lovely Professional University (Phagwara, Punjab) | CGPA: 7.00</p>
+            </div>
+            <div class="timeline-item">
+                <span class="date">Jun 2022 – Feb 2024</span>
+                <h3>Intermediate (12th Grade)</h3>
+                <p class="school">M Mamta English School (Tornala, Maharashtra) | Score: 84.67%</p>
+            </div>
+            <div class="timeline-item">
+                <span class="date">Jun 2021 – Mar 2022</span>
+                <h3>Matriculation (10th Grade)</h3>
+                <p class="school">Jawahar Vidyalaya Jintur (Jintur, Maharashtra) | Score: 96.6%</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <div class="contact-box">
+            <h2 class="section-title" style="margin-bottom: 1rem;">Get In Touch</h2>
+            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">
+                Feel free to reach out for internship opportunities, collaborations, or project inquiries.
+            </p>
+            
+            <div class="contact-links">
+                <a href="mailto:parthghuge81@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i> parthghuge81@gmail.com</a>
+                <a href="tel:+919860062267" class="social-btn"><i class="fa-solid fa-phone"></i> +91-9860062267</a>
+                <a href="https://www.linkedin.com/in/parth-ghuge" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Hannibal-Lectar" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Parth Ghuge. All rights reserved.</p>
+    </footer>
+
+    <!-- INTERACTIVE MULTILINGUAL CLICK SCRIPT -->
+    <script>
+        const greetings = [
+            { text: "Hi, I'm Parth Ghuge", lang: "English 🇬🇧" },
+            { text: "नमस्कार, मी पार्थ घुगे", lang: "Marathi 🚩" },
+            { text: "नमस्ते, अहम् पार्थः घोगे", lang: "Sanskrit 🕉️" },
+            { text: "নমস্কার, আমি পার্থ ঘুগে", lang: "Bengali 🎨" },
+            { text: "नमस्ते, मैं पार्थ घुगे हूँ", lang: "Hindi 🇮🇳" },
+            { text: "નમસ્તે, હું પાર્થ ઘુગે છું", lang: "Gujarati 🪔" },
+            { text: "வணக்கம், நான் பார்த்த் குஹே", lang: "Tamil 🌺" },
+            { text: "నమస్తే, నేను పార్థ్ ఘుగే", lang: "Telugu 🏛️" },
+            { text: "ನಮಸ್ಕಾರ, ನಾನು ಪಾರ್ಥ್ ಘುಗೆ", lang: "Kannada 🌿" }
+        ];
+
+        let currentIndex = 0;
+        const greetingClickArea = document.getElementById('greetingClickArea');
+        const greetingText = document.getElementById('greetingText');
+        const langTag = document.getElementById('langTag');
+
+        greetingClickArea.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % greetings.length;
+            
+            greetingText.style.opacity = '0';
+            greetingText.style.transform = 'translateY(-5px)';
+            
+            setTimeout(() => {
+                greetingText.textContent = greetings[currentIndex].text;
+                langTag.textContent = greetings[currentIndex].lang;
+                greetingText.style.opacity = '1';
+                greetingText.style.transform = 'translateY(0)';
+            }, 150);
+        });
+    </script>
+</body>
+</html>
